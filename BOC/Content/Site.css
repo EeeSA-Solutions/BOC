@@ -22,3 +22,16 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.add-form label{
+    width: 100px;
+    display: block;
+}
+
+    .add-form label span {
+        width: 100px;
+    }
+
+    .BTN{
+        
+    }

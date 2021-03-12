@@ -1,0 +1,36 @@
+﻿@model BOC.Models.Contact
+
+@{
+    ViewBag.Title = "AddContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddContact</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="add-form">
+        <label>
+            <span>Firstname:</span>
+            @Html.EditorFor(x => x.Firstname, new { htmlAttributes = new { @class = "" } })
+        </label>
+        <label>
+            <span>Lastname:</span>
+            @Html.EditorFor(x => x.Lastname, new { htmlAttributes = new { @class = "" } })
+        </label>
+        <label>
+            <span>Phonenumber:</span>
+            @Html.EditorFor(x => x.Phonenumber, new { htmlAttributes = new { @class = "" } })
+        </label>
+        <label>
+            <span>Email:</span>
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "" } })
+        </label>
+        <label>
+            <span>Address:</span>
+            @Html.EditorFor(x => x.Address, new { htmlAttributes = new { @class = "" } })
+        </label>
+        
+            <input type="submit" value="Submit" class="BTN"/>
+</div>
+}

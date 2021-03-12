@@ -9,7 +9,8 @@ namespace BOC.Models
     public class Contact
     {
         [Key]
-        public Guid ID { get; set; }
+        public int ID { get; set; }
+        [Required(ErrorMessage = "Får inte vara tom")]
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Phonenumber { get; set; }
