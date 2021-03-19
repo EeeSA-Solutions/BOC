@@ -95,11 +95,7 @@ namespace BOC.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult EditContact(int id)
-        {
-            return View();
-        }
+       
 
         public ActionResult SharedContacts()
         {
@@ -109,6 +105,17 @@ namespace BOC.Controllers
                 var info = db.Contacts.ToList();
                 return View(info);
             }
+        }
+
+        [HttpGet]
+        public ActionResult EditContact(int id)
+        {
+            using(var db = new BOCContext())
+            {
+                
+                return View(db.Contacts.Where(x => x.ID == id).FirstOrDefault());
+            }
+           
         }
 
         [HttpPost]
@@ -122,7 +129,6 @@ namespace BOC.Controllers
                 {
                     cont.Address = contact.Address;
                 }
-
 
                 if(contact.Email != null)
                 {
