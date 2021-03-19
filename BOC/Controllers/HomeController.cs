@@ -95,5 +95,42 @@ namespace BOC.Controllers
                 return RedirectToAction("GetContact");
             }
         }
+
+        [HttpGet]
+        public ActionResult EditContact(int contact)
+        {
+            using (var db = new BOCContext())
+            {
+                var cont = db.Contacts.Where(x => x.ID == contact).FirstOrDefault();
+                return View(cont);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditContact(Contact con)
+        {
+            using (var db = new BOCContext())
+            {
+                var cont = db.Contacts.Where(x => x.ID == con.ID).FirstOrDefault();
+
+                db.Contacts.Add(con);
+
+                //Contact contact = new Contact()
+                //{
+                //    ID = cont.ID,
+                //    Firstname = con.Firstname,
+                //    Lastname = con.Lastname,
+                //    Phonenumber = con.Phonenumber,
+                //    Address = con.Address,
+                //    Email = con.Email
+
+                //};
+
+                db.SaveChanges();
+                return RedirectToAction("GetContact");
+                
+            }
+            
+        }
     }
 }
