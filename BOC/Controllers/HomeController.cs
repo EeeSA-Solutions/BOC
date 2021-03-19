@@ -97,40 +97,48 @@ namespace BOC.Controllers
         }
 
         [HttpGet]
-        public ActionResult EditContact(int contact)
+        public ActionResult EditContact(int id)
         {
             using (var db = new BOCContext())
             {
-                var cont = db.Contacts.Where(x => x.ID == contact).FirstOrDefault();
-                return View(cont);
+
+                return View(db.Contacts.Where(x => x.ID == id).FirstOrDefault());
             }
+
         }
 
         [HttpPost]
-        public ActionResult EditContact(Contact con)
+        public ActionResult EditContact(Contact contact)
         {
             using (var db = new BOCContext())
             {
-                var cont = db.Contacts.Where(x => x.ID == con.ID).FirstOrDefault();
+                var cont = db.Contacts.Where(x => x.ID == contact.ID).FirstOrDefault();
 
-                db.Contacts.Add(con);
+               
+                cont.Address = contact.Address;
+                cont.Email = contact.Email;
+                cont.Phonenumber = contact.Phonenumber;
+                if (contact.Firstname != null)
+                {
+                    cont.Firstname = contact.Firstname;
+                }
 
-                //Contact contact = new Contact()
-                //{
-                //    ID = cont.ID,
-                //    Firstname = con.Firstname,
-                //    Lastname = con.Lastname,
-                //    Phonenumber = con.Phonenumber,
-                //    Address = con.Address,
-                //    Email = con.Email
+                if (contact.Lastname != null)
+                {
+                    cont.Lastname = contact.Lastname;
+                }
 
-                //};
+               
+                    
+                
+
+
 
                 db.SaveChanges();
+
                 return RedirectToAction("GetContact");
-                
+
             }
-            
         }
     }
 }
