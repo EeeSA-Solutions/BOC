@@ -9,6 +9,20 @@
 <p>
     @Html.ActionLink("Create New", "AddContact")
 </p>
+@using (Html.BeginForm("GetContact", "Home", FormMethod.Get))
+{
+<div class="search-form">
+    @Html.TextBox("search", null, new { @placeholder = "Search" })
+
+    @Html.RadioButton("SearchBy", "Firstname", true)<span>Firstname</span>
+    @Html.RadioButton("SearchBy", "Lastname", false)<span>Lastname</span>
+    @Html.RadioButton("SearchBy", "Phonenumber", false)<span>Phonenumber</span>
+    @Html.RadioButton("SearchBy", "Email", false)<span>Email</span>
+    @Html.RadioButton("SearchBy", "Address", false)<span>Address</span><br>
+    <input type="submit" value="Search" />
+</div>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -29,29 +43,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lastname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phonenumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "DeleteContact", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "DeleteContact", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

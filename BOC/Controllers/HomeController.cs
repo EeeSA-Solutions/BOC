@@ -1,11 +1,14 @@
 ﻿using BOC.Models;
+using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace BOC.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             return View();
@@ -26,14 +29,45 @@ namespace BOC.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetContact()
+        public ActionResult GetContact(string search, string searchBy)
         {
             using (var db = new BOCContext())
             {
-                var info = db.Contacts.ToList();
-                return View(info);
+                if(searchBy == "Firstname")
+                {
+                    return View(db.Contacts.Where(c => c.Firstname.StartsWith(search) || search == null).ToList());
+                }
+                else if(searchBy == "Lastname")
+                {
+                    return View(db.Contacts.Where(c => c.Lastname.StartsWith(search) || search == null).ToList());
+                }
+                else if(searchBy == "Phonenumber")
+                {
+                    return View(db.Contacts.Where(c => c.Phonenumber.StartsWith(search) || search == null).ToList());
+                }
+                else if(searchBy == "Email")
+                {
+                    return View(db.Contacts.Where(c => c.Email.StartsWith(search) || search == null).ToList());
+                }
+                else {  
+                    return View(db.Contacts.Where(c => c.Address.StartsWith(search) || search == null).ToList());
+                }
             }
         }
+        
+
+
+
+        //[HttpGet]
+        //public ActionResult GetContact(string searchLetter)
+        //{
+        //    using (var db = new BOCContext())
+        //    {
+        //        var info = db.Contacts.ToList();
+        //        db.Contacts.Where(c => c.Firstname.Contains(searchLetter) || searchLetter == null).ToList()
+        //        return View(info);
+        //    }
+        //}
 
         public ActionResult AddContact(Contact contact)
         {
