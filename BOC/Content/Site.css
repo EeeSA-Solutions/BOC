@@ -35,3 +35,10 @@ textarea {
     .BTN{
         
     }
+
+
+.foot p{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}

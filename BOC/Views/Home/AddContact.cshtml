@@ -1,36 +1,93 @@
-﻿@model BOC.Models.Contact
+﻿@model IEnumerable<BOC.Models.Contact>
+
 
 @{
     ViewBag.Title = "AddContact";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AddContact</h2>
+<h2>Add Contact</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(FormMethod.Post))
 {
     <div class="add-form">
         <label>
             <span>Firstname:</span>
-            @Html.EditorFor(x => x.Firstname, new { htmlAttributes = new { @class = "" } })
+            <input name="Firstname" id="Firstname" value="" />
         </label>
         <label>
             <span>Lastname:</span>
-            @Html.EditorFor(x => x.Lastname, new { htmlAttributes = new { @class = "" } })
+            <input name="Lastname" id="Lastname" value="" />
         </label>
         <label>
             <span>Phonenumber:</span>
-            @Html.EditorFor(x => x.Phonenumber, new { htmlAttributes = new { @class = "" } })
+            <input name="Phonenumber" id="Phonenumber" value="" />
         </label>
         <label>
             <span>Email:</span>
-            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "" } })
+            <input name="Email" id="Email" value="" />
         </label>
         <label>
             <span>Address:</span>
-            @Html.EditorFor(x => x.Address, new { htmlAttributes = new { @class = "" } })
+            <input name="Address" id="Address" value="" />
         </label>
-        
-            <input type="submit" value="Submit" class="BTN"/>
-</div>
+
+        <input type="submit" value="Submit" class="BTN" />
+    </div>
 }
+
+
+
+
+<h2>Contacts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddContact")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phonenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditContact", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "DeleteContact", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
