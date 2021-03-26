@@ -130,13 +130,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103121050572_initial.cs" />
-    <Compile Include="Migrations\202103121050572_initial.designer.cs">
-      <DependentUpon>202103121050572_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202103261120264_initial.cs" />
+    <Compile Include="Migrations\202103261120264_initial.Designer.cs">
+      <DependentUpon>202103261120264_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BOCContext.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\MinimumAge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,8 +199,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103121050572_initial.resx">
-      <DependentUpon>202103121050572_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103261120264_initial.resx">
+      <DependentUpon>202103261120264_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

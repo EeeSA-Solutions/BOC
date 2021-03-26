@@ -9,28 +9,39 @@
 
 @using (Html.BeginForm())
 {
-    <div class="add-form">
-        <label>
-            <span>Firstname:</span>
-            @Html.EditorFor(x => x.Firstname, new { htmlAttributes = new { @class = "" } })
-        </label>
-        <label>
-            <span>Lastname:</span>
-            @Html.EditorFor(x => x.Lastname, new { htmlAttributes = new { @class = "" } })
-        </label>
-        <label>
-            <span>Phonenumber:</span>
-            @Html.EditorFor(x => x.Phonenumber, new { htmlAttributes = new { @class = "" } })
-        </label>
-        <label>
-            <span>Email:</span>
-            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "" } })
-        </label>
-        <label>
-            <span>Address:</span>
-            @Html.EditorFor(x => x.Address, new { htmlAttributes = new { @class = "" } })
-        </label>
-        
-            <input type="submit" value="Submit" class="BTN"/>
+<div class="add-form">
+    <label>
+        <span>Firstname:</span>
+        @Html.EditorFor(x => x.Firstname, new { htmlAttributes = new { @class = "", required = "required" } })
+    </label>
+    <label>
+        <span>Lastname:</span>
+        @Html.EditorFor(x => x.Lastname, new { htmlAttributes = new { @class = "", required = "required" } })
+    </label>
+    <label>
+        <span>Birthdate:</span>
+        @Html.TextBoxFor(x => x.BirthDate, new { type = "date", required = "required", min = "1900-01-01" })
+        @Html.ValidationMessageFor(x => x.BirthDate, "", new { @class = "text-danger" })
+    </label>
+    <label>
+        <span>Phonenumber:</span>
+        @Html.EditorFor(x => x.Phonenumber)
+        @Html.ValidationMessageFor(x => x.Phonenumber, "", new { @class = "text-danger" })
+    </label>
+    <label>
+        <span>Email:</span>
+        @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "", required = "required" } })
+    </label>
+    <label>
+        <span>Repeat your Email:</span>
+        @Html.EditorFor(x => x.ValidateEmail, new { htmlAttributes = new { @class = "" } })
+        @Html.ValidationMessageFor(x => x.ValidateEmail , "" , new { @class = "text-danger"})
+    </label>
+    <label>
+        <span>Address:</span>
+        @Html.EditorFor(x => x.Address, new { htmlAttributes = new { @class = "", required = "required" } })
+    </label>
+
+    <input type="submit" value="Submit" class="BTN" />
 </div>
 }

@@ -166,8 +166,6 @@ C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.csproj.CoreCompileInputs.cache
 C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.csproj.CopyComplete
 C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.dll
 C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.pdb
-C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.Migrations.initial.resources
-C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.csproj.GenerateResource.cache
 C:\Users\tobia\source\repos\BOC\BOC\bin\BOC.dll.config
 C:\Users\tobia\source\repos\BOC\BOC\bin\BOC.dll
 C:\Users\tobia\source\repos\BOC\BOC\bin\BOC.pdb
@@ -253,3 +251,5 @@ C:\Users\tobia\source\repos\BOC\BOC\obj\Debug\BOC.csproj.CoreCompileInputs.cache
 C:\Users\tobia\source\repos\BOC\BOC\obj\Debug\BOC.csproj.CopyComplete
 C:\Users\tobia\source\repos\BOC\BOC\obj\Debug\BOC.dll
 C:\Users\tobia\source\repos\BOC\BOC\obj\Debug\BOC.pdb
+C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.Migrations.initial.resources
+C:\Users\Biszc\Desktop\BOC\BOC\obj\Debug\BOC.csproj.GenerateResource.cache
