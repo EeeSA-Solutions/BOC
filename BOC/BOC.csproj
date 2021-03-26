@@ -130,9 +130,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103261120264_initial.cs" />
-    <Compile Include="Migrations\202103261120264_initial.Designer.cs">
-      <DependentUpon>202103261120264_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202103261214035_init.cs" />
+    <Compile Include="Migrations\202103261214035_init.Designer.cs">
+      <DependentUpon>202103261214035_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BOCContext.cs" />
@@ -181,6 +181,7 @@
     <Content Include="Views\Home\DeleteContact.cshtml" />
     <Content Include="Views\Home\SearchContact.cshtml" />
     <Content Include="Views\Home\EditContact.cshtml" />
+    <Content Include="Views\Shared\Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -199,8 +200,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103261120264_initial.resx">
-      <DependentUpon>202103261120264_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103261214035_init.resx">
+      <DependentUpon>202103261214035_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
